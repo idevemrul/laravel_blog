@@ -40,4 +40,21 @@ class Test extends BaseController
     {
         return view('header') . view('profile1') . view('footer');
     }
+
+
+    // ========template=============
+    public function temp()
+    {
+        return view('temp');
+    }
+
+    public function temp_page1()
+    {
+        return view('temp_page1');
+    }
+
+    public function temp_page2()
+    {
+        return view('temp_page2');
+    }
 }

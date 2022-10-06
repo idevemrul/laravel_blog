@@ -15,6 +15,8 @@ class Kernel extends HttpKernel
      */
     protected $middleware = [
         \App\Http\Middleware\TrustProxies::class,
+        // \App\Http\Middleware\UserAuth::class,
+        // \App\Http\Middleware\TestAuth::class,
         \Fruitcake\Cors\HandleCors::class,
         \App\Http\Middleware\CheckForMaintenanceMode::class,
         \Illuminate\Foundation\Http\Middleware\ValidatePostSize::class,
@@ -36,12 +38,22 @@ class Kernel extends HttpKernel
             \Illuminate\View\Middleware\ShareErrorsFromSession::class,
             \App\Http\Middleware\VerifyCsrfToken::class,
             \Illuminate\Routing\Middleware\SubstituteBindings::class,
+
+
         ],
 
         'api' => [
             'throttle:60,1',
             \Illuminate\Routing\Middleware\SubstituteBindings::class,
         ],
+
+        'TestAuth' => [
+            \App\Http\Middleware\TestAuth::class,
+        ],
+        'UserAuth' => [
+            \App\Http\Middleware\UserAuth::class,
+        ],
+
     ];
 
     /**
@@ -51,8 +63,13 @@ class Kernel extends HttpKernel
      *
      * @var array
      */
+
     protected $routeMiddleware = [
         'auth' => \App\Http\Middleware\Authenticate::class,
+        // ------custome middleware-----------
+        'UserAuth' => \App\Http\Middleware\UserAuth::class,
+        'UserAuth2' => \App\Http\Middleware\UserAuth2::class,
+        'TestAuth' => \App\Http\Middleware\TestAuth::class,
         'auth.basic' => \Illuminate\Auth\Middleware\AuthenticateWithBasicAuth::class,
         'bindings' => \Illuminate\Routing\Middleware\SubstituteBindings::class,
         'cache.headers' => \Illuminate\Http\Middleware\SetCacheHeaders::class,

@@ -67,3 +67,24 @@ Route::get('form_submit', 'Form@form_submit');
 Route::get('blade_view', function () {
     return view('blade_view', array('data' => array('name' => 'Rajik', 'age' => '20')));
 });
+
+
+// ======= muster templating =============
+// Route::view('app', 'app');
+// Route::view('app/page1', 'app_page1');
+// Route::view('app/page2', 'app_page2');
+
+
+
+// ========middleware testing======
+Route::view('606', '606');
+
+
+// =====group middleware=======
+Route::group(['middleware' => ['UserAuth']], function () {
+    Route::view('app/page1', 'app_page1');
+    Route::view('app/page2', 'app_page2');
+});
+
+// ========route middleware=====
+Route::view('app', 'app')->middleware('UserAuth2');
