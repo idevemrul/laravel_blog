@@ -88,3 +88,36 @@ Route::group(['middleware' => ['UserAuth']], function () {
 
 // ========route middleware=====
 Route::view('app', 'app')->middleware('UserAuth2');
+
+
+// ============SESSION TEST========
+Route::get('session_set', 'Session@session_set');
+Route::get('session_get', 'Session@session_get');
+Route::get('session_test', 'Session@session_test');
+
+Route::get('session_destroy', 'Session@session_destroy');
+
+
+
+// =========STATIC LOGIN VALIDATION USNG SESSION FROM CONTROLLER ============
+Route::get('admin_login', 'Admin@index');
+Route::post('admin_auth', 'Admin@admin_auth');
+Route::get('admin_logout', 'Admin@admin_logout');
+
+Route::get('admin_dashboard', 'Admin@admin_dashboard');
+
+
+// =========STATIC LOGIN VALIDATION USNG SESSION FROM ROUTE ============
+Route::get('admin_dashboard_route', function () {
+    if (session()->has('user_token')) {
+        session()->flash('valid_user', 'Please try with valid user credentials | Redirect from Route');
+        return view('admin_dashboard');
+    } else {
+        session()->flash('invalid_user', 'Please try with valid user credentials | Redirect from route');
+        return redirect(('admin_login'));
+    }
+    // return view('admin_dashboard');
+});
+
+// =========STATIC LOGIN VALIDATION USNG SESSION FROM MIDDLEWARE ============
+Route::get('admin_dashboard_mid', 'Admin@admin_dashboard')->middleware('admin');

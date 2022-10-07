@@ -1,8 +1,9 @@
 Class date:
 1. 16-09-2022   Introduction | Installation
 2. 29-09-2022   Installation pacific version | Directory identity
-3. 02-10-2022   Route | View | Controller
-4. 03-10-2022   Model | Migration | Seed
-5. 04-10-2022   Component | Form |
-6. 06-10-2022   Component | Form | Blade engine syntask
-7. 07-10-2022   Master template | Middleware
+3. 01-10-2022   Route | View | Controller
+4. 02-10-2022   Model | Migration | Seed
+5. 03-10-2022   Component | Form Create, submission, data retrive |
+6. 05-10-2022   Component | Form | Blade engine syntask
+7. 06-10-2022   Master template | Middleware
+8. 07-10-2022   Session | Session with class | session with route | session with middleware | session on login page |
