@@ -6,4 +6,6 @@ Class date:
 5. 03-10-2022   Component | Form Create, submission, data retrive |
 6. 05-10-2022   Component | Form | Blade engine syntask
 7. 06-10-2022   Master template | Middleware
-8. 07-10-2022   Session | Session with class | session with route | session with middleware | session on login page |
+8. 07-10-2022   Session | Session with class | session with route | session with middleware | session on login page.
+8.              Database operation | Use Migration | Query Builder | Elequent ORM.
+8.              CURD Operation | Create Form | Data Submission | Create Table by Migration | Data Create or store to Table | Date View | Data Edit | Data Update | Data Delte.
